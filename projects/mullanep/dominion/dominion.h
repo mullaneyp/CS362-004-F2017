@@ -129,10 +129,13 @@ int getWinners(int players[MAX_PLAYERS], struct gameState *state);
    1, others to 0 */
 
 /* Refactored */
+/* Smithy bug: return 1 instead of 0 */
 int smithyCard(int currentPlayer, struct gameState *state, int handPos);
-/* Bug - changed '*z' (pass by reference) to 'z' (pass by value) */
-int adventurerCard(int currentPlayer, struct gameState *state, int drawntreasure, int cardDrawn, int* z, int temphand[]);
+/* Adventurer bug: while drawntreasure '< 1' changed to '< 2'*/
+int adventurerCard(int currentPlayer, struct gameState *state, int drawntreasure, int cardDrawn, int z, int temphand[]);
+/* Village *bug: +3 actions instead of +2 actions. */
 int villageCard(int currentPlayer, struct gameState *state, int handPos);
+/* Council Room bug: +2 buy instead of +1 buy */
 int councilRoomCard(int currentPlayer, struct gameState *state, int handPos);
 int greatHallCard(int currentPlayer, struct gameState *state, int handPos);
 

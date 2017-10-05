@@ -85,6 +85,7 @@ int main (int argc, char** argv) {
     else {
       if (adventurerPos != -1) {
         printf("1: adventurer played from position %d\n", adventurerPos);
+         
         playCard(adventurerPos, -1, -1, -1, &G);
         money = 0;
         i=0;
