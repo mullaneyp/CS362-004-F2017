@@ -1,0 +1,529 @@
+*********************** unittest1.c: Testing buyCard *******************************
+
+TEST: Initialization returns 0.
+Current hand count: 0
+Current hand count: 1
+Current hand count: 2
+Current hand count: 3
+Current hand count: 4
+PASSED: Initialization returned 0.
+
+TEST: Invalid input returns -1.
+Entering buyCard...
+You bought card number -1 for -1 coins. You now have 1 buys and 11 coins.
+FAILED: Invalid input -1 returns -1.
+
+TEST: Valid input returns 0.
+Entering buyCard...
+You bought card number 0 for 0 coins. You now have 0 buys and 11 coins.
+PASSED: Valid input 0 returns 0.
+
+TEST: Not enough buys, returns -1.
+Entering buyCard...
+You do not have any buys left
+PASSED: Not enough buys, returns -1.
+
+TEST: Not enough card supply, returns -1.
+Entering buyCard...
+You do not have any buys left
+PASSED: Not enough card supply, returns -1.
+
+TEST: Not enough coins, returns -1.
+Entering buyCard...
+You do not have any buys left
+PASSED: Not enough coins, returns -1.
+
+TESTS FAILED: 1.  TEST PASSED: 5.
+
+************************** unittest2.c: Testing getCost ****************************
+
+TEST: Initialization returns 0.
+Current hand count: 0
+Current hand count: 1
+Current hand count: 2
+Current hand count: 3
+Current hand count: 4
+PASSED: Initialization returns 0.
+
+TEST: Invalid input returns -1.
+PASSED: Invalid input -1 returns -1.
+
+TEST: Valid input returns 0.
+PASSED: Valid input 4 returns 0.
+
+TEST: Curse returns 0.
+PASSED: Curse returns 0.
+
+TEST: Estate returns 2.
+PASSED: Estate returns 2.
+
+TEST: Duchy returns 5.
+PASSED: Duchy returns 5.
+
+TEST: Province returns 5.
+PASSED: Province returns 8.
+
+TEST: Copper returns 0.
+PASSED: Copper returns 0.
+
+TEST: Silver returns 3.
+PASSED: Silver returns 3.
+
+TEST: Gold returns 6.
+PASSED: Gold returns 6.
+
+TEST: Adventurer returns 6.
+PASSED: Adventurer returns 6.
+
+TEST: council_room returns 5.
+PASSED: council_room returns 5.
+
+TEST: feast returns 4.
+PASSED: feast returns 4.
+
+TEST: gardens returns 4.
+PASSED: gardens returns 4.
+
+TEST: mine returns 5.
+PASSED: mine returns 5.
+
+TEST: remodel returns 4.
+PASSED: remodel returns 4.
+
+TEST: smithy returns 4.
+PASSED: smithy returns 4.
+
+TEST: village returns 3.
+PASSED: village returns 3.
+
+TEST: baron returns 4.
+PASSED: baron returns 4.
+
+TEST: great_hall returns 3.
+PASSED: great_hall returns 3.
+
+TEST: minion returns 5.
+PASSED: minion returns 5.
+
+TEST: steward returns 3.
+PASSED: steward returns 3.
+
+TEST: tribute returns 5.
+PASSED: tribute returns 5.
+
+TEST: ambassador returns 3.
+PASSED: ambassador returns 3.
+
+TEST: cutpurse returns 4.
+PASSED: cutpurse returns 4.
+
+TEST: embargo returns 2.
+PASSED: embargo returns 2.
+
+TEST: outpost returns 5.
+PASSED: outpost returns 5.
+
+TEST: salvager returns 4.
+PASSED: salvager returns 4.
+
+TEST: sea hag returns 4.
+PASSED: sea hag returns 4.
+
+TEST: treasure_map returns 4.
+PASSED: treasure_map returns 4.
+
+ALL TESTS PASSED.
+
+*********************** unittest3.c: Testing scorefor **********************
+
+TEST: Initialization returns 0.
+Current hand count: 0
+Current hand count: 1
+Current hand count: 2
+Current hand count: 3
+Current hand count: 4
+PASSED: Initialization returned 0.
+
+TEST: Invalid input (3) returns -9999.
+FAILED: Invalid input returns -9999.
+
+invalid: 0
+TEST: Invalid input (-1) returns -9999.
+FAILED: Invalid input returns -9999.
+
+invalid: 0
+TEST: Player 1 score is correct.
+PASSED: Player 1 score correct.
+
+Player 1 Expected score: 28 scoreFor: 28
+
+TEST: Player 2 score is correct.
+
+FAILED: Player 2 score correct.
+
+Player 2 Expected score: 24.  scoreFor: 18.
+TESTS FAILED: 3.  TESTS PASSED: 2
+
+************************* unittest4.c: Testing initializeGame ****************************
+
+TEST: Initialize game with invalid input, 1 player, should return -1.
+PASSED: Initialize game with 1 player returns -1.
+
+TEST: Initialize game with invalid input, 5 players, should return -1.
+PASSED: Initialize game with 5 players returns -1.
+
+TEST: Initialize game with valid input, but empty kingdom cards array, should return -1.
+PASSED: Initialize game with 2 players, but empty kingdom cards array returns -1.
+
+Current hand count: 0
+Current hand count: 1
+Current hand count: 2
+Current hand count: 3
+Current hand count: 4
+PASSED: Initialize game with 2 players and initialized kingdom cards array returns 0.
+
+TEST: numPlayers == 2.
+PASSED: numPlayers == 2.
+
+TEST: Curse cards == 10.
+PASSED: Curse cards == 10.
+
+TEST: Estate cards == 8.
+PASSED: Estate cards = 8.
+
+TEST: Duchy cards == 8.
+PASSED: Duchy cards = 8
+
+TEST: Province cards == 8.
+PASSED: Province cards = 8
+
+TEST: Copper cards == 46.
+PASSED: Copper cards = 46
+
+TEST: Silver cards == 40.
+PASSED: Silver cards = 40
+
+TEST: Gold cards == 30.
+PASSED: Gold cards = 30
+
+TEST: Player hand counts == 5 & 0 respectively.
+PASSED: Player hand counts = 5 & 0 respectively.
+
+TEST: Player deck count: player 1 = 5, player 2 = 10.
+PASSED: Player deck count: player 1 = 5, player 2 = 10.
+
+TEST: Embargo tokens set to 0.
+PASSED: Embargo Tokens all == 0
+
+TEST: Outpost played 0.
+PASSED: Outpost played = 0.
+
+TEST: Phase set to 0.
+PASSED: Phase = 0.
+
+TEST: numActions set to 1.
+PASSED: numActions = 1.
+
+TEST: numBuys set to 1.
+PASSED: numBuys = 1.
+
+TEST: playedCardCount set to 0.
+PASSED: playedCardCount = 0.
+
+TEST: whoseTurn set to 0.
+PASSED: whoseTurn = 0.
+
+TEST: handCount player 1 set to 5.
+PASSED: handCount[0] == 5.
+
+ALL TESTS PASSED.
+
+************************* cardtest1.c: Testing smithy card ****************************
+
+Current hand count: 0
+Current hand count: 1
+Current hand count: 2
+Current hand count: 3
+Current hand count: 4
+PASSED: Initialization returned 0.
+
+TEST: After initialization, hand and deck card counts are 5.
+
+PASSED: Hand and deck counts before smithy == 5.
+
+TEST: smithy cardEffect returns 0.
+
+Current hand count: 5
+Current hand count: 6
+Current hand count: 7
+Current hand count: 8
+Current hand count: 9
+PASSED: Testing smithy card effect returned 0.
+
+TEST: Player's hand count after smithy played should be +3.
+
+FAILED: After smithy played, handCount is +3.
+
+Handcount Actual: 9, Expected: 8.
+TEST: Cards came from players deck and not other player.
+
+FAILED: After smithy played, deckCount is -3.
+
+Deckcount: Actual: 0, Expected: 2.
+TEST: Opponent's hand & deck counts were not altered.
+
+PASSED: No changes to other player's piles.
+
+TESTS FAILED: 2. TESTS PASSED: 4
+
+******************** cardtest2.c: Testing council card *****************
+
+Current hand count: 0
+Current hand count: 1
+Current hand count: 2
+Current hand count: 3
+Current hand count: 4
+PASSED: Initialize game did returns 0.
+
+TEST: Before playing council card, numBuys == 1.
+PASSED: Before testing council card, numBuys == 1.
+
+TEST: Playing council_room card returns 0.
+Current hand count: 5
+Current hand count: 6
+Current hand count: 7
+Current hand count: 8
+Current hand count: 0
+PASSED: Council card effect returns 0.
+
+TEST: After council card, numBuys == 2 (+1).
+FAILED: After testing council card, numBuys == 2.
+
+numBuys = 3
+TEST: After playing card, player1 is + 3 cards, player2 is +1 cards.
+PASSED: After playing council_room card, player1 is +3 cards.
+
+PASSED: After playing council_room card, player2 is +1 cards.
+
+TEST: After playing card, played card count is +1.
+PASSED: After playing council_room card, played card count is +1.
+
+TESTS FAILED: 1. TESTS PASSED: 6
+
+************************ cardtest3.c: Testing village card.********************
+
+TEST: Initialize game retuns 0.
+Current hand count: 0
+Current hand count: 1
+Current hand count: 2
+Current hand count: 3
+Current hand count: 4
+PASSED: Initialize game.
+
+TEST: Before village card effect, numActions = 1.
+PASSED: Before testing village card, numActions = 1.
+
+TEST: Village card effect returns 0.
+Current hand count: 5
+PASSED: Testing village card effect returns 0.
+
+TEST: After playing village card, numActions is + 2.
+FAILED: After testing village card, numActions is + 2.
+
+numActions = 4
+TEST: After playing card, player's hand count is unchanged.
+PASSED: After testing village card, player's hand count is unchanged.
+
+TEST: After playing card, played card count is +1.
+PASSED: After playing council_room card, played card count is +1.
+
+TEST: After playing card, player's deck count is -1.
+PASSED: After testing village card, player deck count is -1.
+
+1 tests failed. 6 tests passed.
+
+******************* cardtest4.c: Testing adventurer card **********************
+
+TEST: Initialize game retuns 0.
+Current hand count: 0
+Current hand count: 1
+Current hand count: 2
+Current hand count: 3
+Current hand count: 4
+PASSED: Initialize game returns 0.
+
+TEST: Before adventurer card, handCount = 5.
+PASSED: Before adventuer, handcount == 5.
+
+TEST: Adventurer card effect returns 0.
+Current hand count: 5
+Current hand count: 6
+PASSED: Adventurer card effect returns 0.
+
+TEST: After adventurer card effect player's handCount is + 1.
+FAILED: After testing adventurer card handCount is +1
+
+handCount = 7(+2).
+TESTS FAILED: 1. TESTS PASSED: 3.
+
+Function 'compare'
+Lines executed:83.33% of 6
+Branches executed:100.00% of 4
+Taken at least once:75.00% of 4
+No calls
+
+Function 'newGame'
+Lines executed:0.00% of 2
+No branches
+No calls
+
+Function 'kingdomCards'
+Lines executed:0.00% of 12
+No branches
+No calls
+
+Function 'initializeGame'
+Lines executed:88.46% of 78
+Branches executed:95.65% of 46
+Taken at least once:86.96% of 46
+No calls
+
+Function 'shuffle'
+Lines executed:94.44% of 18
+Branches executed:100.00% of 8
+Taken at least once:87.50% of 8
+No calls
+
+Function 'playCard'
+Lines executed:0.00% of 14
+Branches executed:0.00% of 10
+Taken at least once:0.00% of 10
+No calls
+
+Function 'buyCard'
+Lines executed:77.78% of 18
+Branches executed:100.00% of 6
+Taken at least once:66.67% of 6
+No calls
+
+Function 'numHandCards'
+Lines executed:0.00% of 1
+No branches
+No calls
+
+Function 'handCard'
+Lines executed:0.00% of 2
+No branches
+No calls
+
+Function 'supplyCount'
+Lines executed:100.00% of 1
+No branches
+No calls
+
+Function 'fullDeckCount'
+Lines executed:0.00% of 11
+Branches executed:0.00% of 12
+Taken at least once:0.00% of 12
+No calls
+
+Function 'whoseTurn'
+Lines executed:100.00% of 1
+No branches
+No calls
+
+Function 'endTurn'
+Lines executed:0.00% of 22
+Branches executed:0.00% of 6
+Taken at least once:0.00% of 6
+No calls
+
+Function 'isGameOver'
+Lines executed:0.00% of 12
+Branches executed:0.00% of 8
+Taken at least once:0.00% of 8
+No calls
+
+Function 'scoreFor'
+Lines executed:100.00% of 26
+Branches executed:100.00% of 42
+Taken at least once:88.10% of 42
+No calls
+
+Function 'getWinners'
+Lines executed:0.00% of 33
+Branches executed:0.00% of 22
+Taken at least once:0.00% of 22
+No calls
+
+Function 'drawCard'
+Lines executed:33.33% of 27
+Branches executed:33.33% of 6
+Taken at least once:16.67% of 6
+No calls
+
+Function 'getCost'
+Lines executed:100.00% of 30
+Branches executed:100.00% of 28
+Taken at least once:100.00% of 28
+No calls
+
+Function 'cardEffect'
+Lines executed:4.53% of 265
+Branches executed:12.85% of 179
+Taken at least once:2.79% of 179
+No calls
+
+Function 'discardCard'
+Lines executed:73.33% of 15
+Branches executed:100.00% of 6
+Taken at least once:50.00% of 6
+No calls
+
+Function 'gainCard'
+Lines executed:53.33% of 15
+Branches executed:100.00% of 6
+Taken at least once:50.00% of 6
+No calls
+
+Function 'updateCoins'
+Lines executed:71.43% of 14
+Branches executed:100.00% of 8
+Taken at least once:75.00% of 8
+No calls
+
+Function 'smithyCard'
+Lines executed:100.00% of 5
+Branches executed:100.00% of 2
+Taken at least once:100.00% of 2
+No calls
+
+Function 'adventurerCard'
+Lines executed:53.33% of 15
+Branches executed:66.67% of 12
+Taken at least once:41.67% of 12
+No calls
+
+Function 'villageCard'
+Lines executed:100.00% of 4
+No branches
+No calls
+
+Function 'councilRoomCard'
+Lines executed:100.00% of 12
+Branches executed:100.00% of 6
+Taken at least once:100.00% of 6
+No calls
+
+Function 'greatHallCard'
+Lines executed:0.00% of 4
+No branches
+No calls
+
+File 'dominion.c'
+Lines executed:36.50% of 663
+Branches executed:46.28% of 417
+Taken at least once:35.97% of 417
+No calls
+dominion.c:creating 'dominion.c.gcov'
+
