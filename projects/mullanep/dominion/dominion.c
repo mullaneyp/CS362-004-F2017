@@ -834,7 +834,6 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
             return 0;
             
         case smithy:
-            printf("Agent smith ");
             return smithyCard(currentPlayer, state, handPos);
             /* original code
              //+3 Cards
@@ -849,7 +848,6 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
              end original code*/
             
         case village:
-            printf("village");
             return villageCard(currentPlayer, state, handPos);
             /* Original code
              //+1 Card
@@ -1350,8 +1348,10 @@ int updateCoins(int player, struct gameState *state, int bonus)
 // Refactored cards:
 // Smithy * Bug: +5 cards*
 int smithyCard(int currentPlayer, struct gameState *state, int handPos){
+  //  printf("1351 smithy\n");
+    int i;
     //+5 Cards
-    for (int i = 0; i < 5; i++)
+    for ( i = 0; i < 5; i++)
     {
         drawCard(currentPlayer, state);
     }
@@ -1387,6 +1387,7 @@ int adventurerCard(int currentPlayer, struct gameState *state, int drawntreasure
 }
 // Village *bug: +3 actions instead of +2 actions.
 int villageCard(int currentPlayer, struct gameState *state, int handPos){
+   // printf("1389: village\n");
     //+1 Card
     drawCard(currentPlayer, state);
     
@@ -1399,8 +1400,9 @@ int villageCard(int currentPlayer, struct gameState *state, int handPos){
 }
 // Council Room *bug: +2 buy instead of +1 buy
 int councilRoomCard(int currentPlayer, struct gameState *state, int handPos){
+    int i;
     //+4 Cards
-    for (int i = 0; i < 4; i++)
+    for (i = 0; i < 4; i++)
     {
         drawCard(currentPlayer, state);
     }
@@ -1410,7 +1412,7 @@ int councilRoomCard(int currentPlayer, struct gameState *state, int handPos){
     state->numBuys++; /* bug +2 buy instead of +1 */
     
     //Each other player draws a card
-    for (int i = 0; i < state->numPlayers; i++)
+    for (i = 0; i < state->numPlayers; i++)
     {
         if ( i != currentPlayer )
         {
