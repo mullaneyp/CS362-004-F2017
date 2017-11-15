@@ -65,7 +65,6 @@ int initializeGame(int numPlayers, int kingdomCards[10], int randomSeed,
         }
     }
     
-    
     //initialize supply
     ///////////////////////////////
     
@@ -274,6 +273,9 @@ int buyCard(int supplyPos, struct gameState *state) {
     if (DEBUG){
         printf("Entering buyCard...\n");
     }
+    if(supplyPos < 0){
+        return -1;
+    }
     
     // I don't know what to do about the phase thing.
     
@@ -416,6 +418,10 @@ int isGameOver(struct gameState *state) {
 
 int scoreFor (int player, struct gameState *state) {
     
+    if(player < 0 || player > state->numPlayers){
+        return -9999;
+    }
+    
     int i;
     int score = 0;
     //score from hand
@@ -441,7 +447,7 @@ int scoreFor (int player, struct gameState *state) {
     }
     
     //score from deck
-    for (i = 0; i < state->discardCount[player]; i++)
+    for (i = 0; i < state->deckCount[player]; i++)
     {
         if (state->deck[player][i] == curse) { score = score - 1; };
         if (state->deck[player][i] == estate) { score = score + 1; };
@@ -1346,26 +1352,25 @@ int updateCoins(int player, struct gameState *state, int bonus)
 //end of dominion.c
 
 // Refactored cards:
-// Smithy * Bug: +5 cards*
+// Smithy * Bug: +5 cards - changed to +3*
 int smithyCard(int currentPlayer, struct gameState *state, int handPos){
   //  printf("1351 smithy\n");
     int i;
-    //+5 Cards
-    for ( i = 0; i < 5; i++)
+    //+3 Cards
+    for ( i = 0; i < 3; i++)
     {
         drawCard(currentPlayer, state);
     }
     
     //discard card from hand
     discardCard(handPos, currentPlayer, state, 0);
-    /* Bug - return 1 instead of 0 - caused turns to end prematurely every time, so discarded */
-    // return 1;
+   
     return 0;
 }
-// Adventurer    *bug: while drawntreasure '< 1' changed to '< 2'
+// Adventurer    
 int adventurerCard(int currentPlayer, struct gameState *state, int drawntreasure, int cardDrawn, int z, int temphand[]){
     
-    while(drawntreasure<2){                 /* Bug  '< 1' changed to '< 2'*/
+    while(drawntreasure<1){                 
         if (state->deckCount[currentPlayer] <2){//if the deck is empty we need to shuffle discard and add to deck
             shuffle(currentPlayer, state);
         }
@@ -1387,12 +1392,12 @@ int adventurerCard(int currentPlayer, struct gameState *state, int drawntreasure
 }
 // Village *bug: +3 actions instead of +2 actions.
 int villageCard(int currentPlayer, struct gameState *state, int handPos){
-   // printf("1389: village\n");
+  
     //+1 Card
     drawCard(currentPlayer, state);
     
     //+2 Actions
-    state->numActions = state->numActions + 3;
+    state->numActions = state->numActions + 2;
     
     //discard played card from hand
     discardCard(handPos, currentPlayer, state, 0);
@@ -1409,7 +1414,6 @@ int councilRoomCard(int currentPlayer, struct gameState *state, int handPos){
     
     //+1 Buy
     state->numBuys++;
-    state->numBuys++; /* bug +2 buy instead of +1 */
     
     //Each other player draws a card
     for (i = 0; i < state->numPlayers; i++)
