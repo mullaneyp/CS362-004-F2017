@@ -1,0 +1,217 @@
+Noverse Bug Reporting Template
+==============================
+
+Title:    buyCard does not return -1.
+Class: "Serious Bug"
+
+Date:           11/12/17
+Reported By:   	Patrick Mullaney
+Email:      	mullanep@oregonstate.edu
+
+
+Product:        dominion.c      Version:	Github branch 2.
+Platform:       Cloud9 (Ubuntu) Version:	14.04
+Browser:        n/a             Version:	n/a
+URL:        	n/a
+
+Is it reproducible: Yes 
+
+Description
+===========
+Invalid input for buyCard function does not return -1.  There is no specific line of 
+code as the function does not check for a valid index supplyPos at all but the function
+starts on line 272 of dominion.c.
+
+Steps to Produce/Reproduce
+--------------------------
+Attempt to run buyCard function with -1 for supplyPos argument.
+
+Expected Results
+----------------
+Function should return -1.
+
+Actual Results
+--------------
+Function should return 0.
+
+Workarounds
+-----------
+N/a.
+
+Attachments
+-----------
+N/a.
+
+Other Information
+-----------------
+N/a.
+
+/****************** Bug Report #2 **********************/
+Title:  scoreFor does not return -9999 for invalid input.
+Class: 	"Serious Bug"
+
+Product:       Dominion.c       Version:  	Github branch #2.
+Platform:      Cloud9 (Ubuntu) 	Version:	14.04
+Browser:        n/a             Version:	n/a
+URL:        	n/a
+
+Is it reproducible: Yes 
+
+Description
+===========
+
+scoreFor returns incorrect score values as an incorrect test expression is used in the for loop for deck count.  At line 444, the test expression is the discard count, instead of the deck count, causing scores to be tallied incorrectly.   Additionally, scoreFor function does return -9999 for invalid input.  scoreFor function starts on line 417.  There is no specific line of code for the error as there is no boundary checking for player parameter before attempting to access that index.
+
+Steps to Produce/Reproduce
+--------------------------
+To reproduce incorrect score, run scoreFor function on a test case in which the deck count is greater than the discard count, which will cause an incorrect score calculation.  For invalid input, run scoreFor function with -1 or 3 (on 2 player game) as player argument to reproduce invalid error.   
+
+Expected Results
+----------------
+Function should return correct score or -9999 for invalid player.
+
+Actual Results
+--------------
+Function returns incorrect score values or 0 for invalid players.
+
+Workarounds
+-----------
+N/a.
+
+Attachments
+-----------
+N/a.
+
+Other Information
+-----------------
+N/a.
+
+/****************** Bug Report #3 **********************/
+Title:  smithy card does not return correct hand counts.
+Class: "Serious Bug"
+
+Product:       Dominion.c       Version: 	Github branch #2.
+Platform:      Cloud9 (Ubuntu) 	Version:	14.04
+Browser:        n/a             Version:	n/a
+URL:        	n/a
+
+Is it reproducible: Yes 
+
+Description
+===========
+player hand and deck counts after smithy card are played are incorrect.
+Hand count should be +3 and deck count should be -3.  smithyCardEffect
+starts on line 1291.  On line 1294, drawNCards appears to pass 2 as argument
+to draw cards instead of 3.
+
+Steps to Produce/Reproduce
+--------------------------
+Store pre-smithy hand count and deck count, run smithyCard in 
+cardEffect, compare results to confirm post-smithy hand count is +3
+and post-smithy deck count is -3.  Tested with pre-smithy hand and deck counts of 
+5 cards.
+
+Expected Results
+----------------
+hand count will be 8, deck count will be 2.
+
+Actual Results
+--------------
+hand count was 6, deck count was 3.
+
+Workarounds
+-----------
+N/a.
+
+Attachments
+-----------
+N/a.
+
+Other Information
+-----------------
+N/a.
+
+/****************** Bug Report #4 **********************/
+Title:  council_room card does not always function correctly.
+Class: "Serious Bug"
+
+Product:       Dominion.c       Version:  	Github branch #2.
+Platform:      Cloud9 (Ubuntu) 	Version:	14.04
+Browser:        n/a             Version:	n/a
+URL:        	n/a
+
+Is it reproducible: Occasionally
+
+Description
+===========
+Occasionally after playing coucil_room card, player 2 will not be +1 cards.
+coucil_room card begins on 678.  Did notice anything immediately in code, 
+however after playing council_room card, occasionally a second player 
+will not have drawn a card.
+
+Steps to Produce/Reproduce
+--------------------------
+In a 2 player game, track player 2's hand count.  Play smithy card and verify that count after is +1.  Failed test cases were produced in 2, 3, and 4 player games with seed numbes from 1-9.
+
+Expected Results
+----------------
+Player 2's hand count will be +1 after council_room card.
+
+Actual Results
+--------------
+Out of 1000 test cases for council_room card, player 2 occasionally was not +1, approximately 36% of the time.  
+
+Workarounds
+-----------
+N/a.
+
+Attachments
+-----------
+N/a.
+
+Other Information
+-----------------
+N/a.
+
+/************************ Bug Report #5 **************************/
+Title:  adventurer card's hand count is not +1 after being played.
+Class: "Serious Bug"
+
+Product:       Dominion.c       Version:	Github branch #2.
+Platform:      Cloud9 (Ubuntu) 	Version:	14.04             
+Browser:        n/a             Version:	n/a
+URL:        	n/a
+
+Is it reproducible: Yes
+
+Description
+===========
+After adventurer card played, player's hand should be +1, however
+it is often +2 or +3.
+
+Steps to Produce/Reproduce
+--------------------------
+Store the player's hand count prior to adventurer card being played
+and compare that the post-adventurer value is equal to the hand count +1.
+Failed test cases were generated 100% of the time for 2, 3, and 4 player 
+games with seed values of 1-9.
+
+Expected Results
+----------------
+Post adventurer player's hand count will be +1.
+
+Actual Results
+--------------
+Equality test failed 100% of the time for 1000 test cases.
+
+Workarounds
+-----------
+N/a.
+
+Attachments
+-----------
+N/a.
+
+Other Information
+-----------------
+N/a.
