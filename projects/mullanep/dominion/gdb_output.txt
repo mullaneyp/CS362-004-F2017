@@ -1,0 +1,199 @@
+$ gdb unittest3
+GNU gdb (Ubuntu 7.7.1-0ubuntu5~14.04.3) 7.7.1
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+---Type <return> to continue, or q <return> to quit---
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from unittest3...done.
+(gdb) break 167
+Breakpoint 1 at 0x401782: file unittest3.c, line 167.
+(gdb) run
+Starting program: /home/ubuntu/workspace/assign5a/unittest3 
+*********************** unittest3.c: Testing scorefor **********************
+
+TEST: Initialization returns 0.
+PASSED: Initialization returned 0.
+
+TEST: Invalid input (3) returns -9999.
+FAILED: Invalid input returns -9999.
+
+invalid: 0
+TEST: Invalid input (-1) returns -9999.
+FAILED: Invalid input returns -9999.
+
+invalid: 0
+TEST: Player 1 score is correct.
+PASSED: Player 1 score correct.
+
+Player 1 Expected score: 28 scoreFor: 28
+
+TEST: Player 2 score is correct.
+
+
+Breakpoint 1, main () at unittest3.c:168
+168         int p2ScoreFor = scoreFor(1, &testGame);
+(gdb) print p2score
+$1 = 24
+(gdb) step
+scoreFor (player=1, state=0x7fffffff7a40) at dominion.c:419
+warning: Source file is more recent than executable.
+419     int scoreFor (int player, struct gameState *state) {
+(gdb) print p2ScoreFor
+No symbol "p2ScoreFor" in current context.
+(gdb) step
+421         int i;
+(gdb) step
+423         //score from hand
+(gdb) step
+424         for (i = 0; i < state->handCount[player]; i++)
+(gdb) step
+425         {
+(gdb) step
+426             if (state->hand[player][i] == curse) { score = score - 1; };
+(gdb) print score
+$2 = 3
+(gdb) step
+427             if (state->hand[player][i] == estate) { score = score + 1; };
+(gdb) print score
+$3 = 3
+(gdb) step
+428             if (state->hand[player][i] == duchy) { score = score + 3; };
+(gdb) print score
+$4 = 3
+(gdb) step
+421         int i;
+(gdb) print score
+$5 = 3
+(gdb) step
+423         //score from hand
+(gdb) step
+424         for (i = 0; i < state->handCount[player]; i++)
+(gdb) step
+425         {
+(gdb) step
+426             if (state->hand[player][i] == curse) { score = score - 1; };
+(gdb) step
+427             if (state->hand[player][i] == estate) { score = score + 1; };
+(gdb) step
+428             if (state->hand[player][i] == duchy) { score = score + 3; };
+(gdb) step
+421         int i;
+(gdb) step
+423         //score from hand
+(gdb) step
+424         for (i = 0; i < state->handCount[player]; i++)
+(gdb) step
+425         {
+(gdb) print score
+$6 = 3
+(gdb) step
+426             if (state->hand[player][i] == curse) { score = score - 1; };
+(gdb) step
+427             if (state->hand[player][i] == estate) { score = score + 1; };
+(gdb) step
+428             if (state->hand[player][i] == duchy) { score = score + 3; };
+(gdb) step
+421         int i;
+(gdb) step
+423         //score from hand
+(gdb) print score
+$7 = 3
+(gdb) step
+424         for (i = 0; i < state->handCount[player]; i++)
+(gdb) step
+425         {
+(gdb) step
+426             if (state->hand[player][i] == curse) { score = score - 1; };
+(gdb) step
+427             if (state->hand[player][i] == estate) { score = score + 1; };
+(gdb) step
+428             if (state->hand[player][i] == duchy) { score = score + 3; };
+(gdb) step
+421         int i;
+(gdb) print score
+$8 = 6
+(gdb) step
+423         //score from hand
+(gdb) step
+424         for (i = 0; i < state->handCount[player]; i++)
+(gdb) step
+425         {
+(gdb) step
+426             if (state->hand[player][i] == curse) { score = score - 1; };
+(gdb) step
+427             if (state->hand[player][i] == estate) { score = score + 1; };
+(gdb) step
+428             if (state->hand[player][i] == duchy) { score = score + 3; };
+(gdb) print score
+$9 = 12
+(gdb) step
+421         int i;
+(gdb) step
+432         }
+(gdb) step
+434         //score from discard
+(gdb) step
+435         for (i = 0; i < state->discardCount[player]; i++)
+(gdb) step
+436         {
+(gdb) step
+437             if (state->discard[player][i] == curse) { score = score - 1; };
+(gdb) step
+438             if (state->discard[player][i] == estate) { score = score + 1; };
+(gdb) print score
+$10 = 13
+(gdb) step
+439             if (state->discard[player][i] == duchy) { score = score + 3; };
+(gdb) step
+432         }
+(gdb) step
+434         //score from discard
+(gdb) step
+435         for (i = 0; i < state->discardCount[player]; i++)
+(gdb) step
+436         {
+(gdb) step
+437             if (state->discard[player][i] == curse) { score = score - 1; };
+(gdb) step
+438             if (state->discard[player][i] == estate) { score = score + 1; };
+(gdb) step
+439             if (state->discard[player][i] == duchy) { score = score + 3; };
+(gdb) step
+432         }
+(gdb) step
+434         //score from discard
+(gdb) step
+435         for (i = 0; i < state->discardCount[player]; i++)
+(gdb) step
+436         {
+(gdb) step
+437             if (state->discard[player][i] == curse) { score = score - 1; };
+(gdb) step
+438             if (state->discard[player][i] == estate) { score = score + 1; };
+(gdb) step
+439             if (state->discard[player][i] == duchy) { score = score + 3; };
+(gdb) step
+432         }
+(gdb) step
+443         }
+(gdb) step
+445         //score from deck
+(gdb) print score
+$11 = 15
+(gdb) step
+446         for (i = 0; i < state->discardCount[player]; i++)
+(gdb) print state->discardCount[player]
+$12 = 3
+(gdb) print state->deckCount[player]
+$13 = 5
+(gdb) 
