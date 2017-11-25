@@ -280,7 +280,7 @@ public class UrlValidatorTest extends TestCase {
            new ResultPair("/..", false),
            new ResultPair("/:testpath", false),
            new ResultPair("/?testpath", false),
-           new ResultPair("/#testpath", false),
+           new ResultPair("#testpath", false),
            new ResultPair("/test//file", false)
    };
   
